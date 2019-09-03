@@ -1,0 +1,128 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MQTT</title>
+	<link rel="stylesheet" href ="index.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<h1>MQTT OVER WEB SOCKET</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-sm">
+			<table class="table table-dark">
+			  	<thead>
+				    <tr>
+				      <th >BROKER</th>
+				    </tr>
+			  	</thead>
+			  	<tbody>
+				    <tr>
+				      <th><label>Address:</label>
+						</th>
+			    	</tr>
+				    <tr>
+				      <th><input type="text" id="address" value="ws://broker.hivemq.com:8000/mqtt"></th>
+				    </tr>
+				    <tr>
+				      <th>
+				      	<button>Connect</button>
+						<button>Disconnect</button>
+
+				      </th>
+						
+						
+				    </tr>
+			  	</tbody>
+			</table>
+		</div>
+		<div class="col-sm">
+			<table class="table table-dark">
+			  	<thead>
+				    <tr>
+				      <th >PUBLISH</th>
+				    </tr>
+			  	</thead>
+			  	<tbody>
+				    <tr>
+				      <th><label>Topic</label>
+						</th>
+			    	</tr>
+				    <tr>
+				      <th><input type="text" id="topic"></th>
+				    </tr>
+				    <tr>
+				    	<th><label>Payload</label></th>
+				    </tr>
+				    <tr>
+				    	<th>
+				    		<input type="text" id="payload">
+				    </tr>
+				    <tr>
+				      <th>
+				      	<button>Publish</button>
+				      </th>
+				    </tr>
+			  </tbody>
+			</table>
+		</div>
+		<div class="col-sm">
+			<table class="table table-dark">
+			  	<thead>
+				    <tr>
+				      <th >SUBSCRIBE</th>
+				    </tr>
+			  	</thead>
+			  	<tbody>
+				    <tr>
+				      <th><label>Topic</label>
+						</th>
+			    	</tr>
+			    	<tr>
+			      		<th><input type="text" id="topic"></th>
+			    	</tr>
+			    	<tr>
+				      	<th>
+					      	<button>Subscribe</button>
+					      	<button>Unsubscribe</button>
+
+				      	</th>
+			    	</tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+
+<table class="table table-dark">
+  	<thead>
+	    <tr>
+	      <th >INCOMING MESSAGES</th>
+	    </tr>
+  	</thead>
+  	<tbody>
+	    <tr>
+	      <th>
+	      	Topic
+	      	Payload
+	      	Time Stamp
+		</th>
+    </tr>
+ </tbody>
+</table>
+
+	</div>
+
+<script  src = paho-mqtt.js></script>
+<script  src = controller.js></script>
+	
+
+
+
+</body>
+
+	<!-- <button id ="btn-publish">Publish</button> --> <!--  -->
+<!-- 	<button id = "btn-connect">Connect</button>
+</html>
+

@@ -1,0 +1,23 @@
+body {
+	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ1XVrrZmxLJ_CZsasgAMoXEttITyyUfbTmBjTSl7Jla4ki9y4");
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: pink;
+	margin: 0;
+	height: 100%;
+
+
+}
+
+table {
+	border: 1px solid black;
+  background-color: transparent;
+  padding: 50px 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
