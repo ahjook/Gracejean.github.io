@@ -28,7 +28,7 @@
 	  					
 	  					<div class="cont">
 	  						<label>Address: </label>
-							<input class="border border-primary" type="text" id="address-input" value="wss://test.mosquitto.org:8081/mqtt"><br><br>
+							<input class="border border-primary" type="text" id="address" value="wss://test.mosquitto.org:8081/mqtt"><br><br>
 							<button id="btn-connect" class="btn btn-success">Connect</button>
 							<button id="btn-disconnect" class="btn btn-warning">Disconnect</button>
 							<br><br>
@@ -48,7 +48,7 @@
 	  					</div>
 
 	  						<label>Topic: </label>
-							<input type="text" class="border border-primary" id="topicSubscribe-input"><br><br>
+							<input type="text" class="border border-primary" id="topic-sub"><br><br>
 							<button id="btn-subscribe" class="btn btn-success">Subscribe</button>
 							<button id="btn-unsubscribe" class="btn btn-warning">Unsubscribe</button>
 							<br><br>
@@ -67,7 +67,7 @@
 		  				</div>
 				
 					<label>Topic: </label>
-					<input type="text" class="border border-primary" id="topicPublish-input">
+					<input type="text" class="border border-primary" id="topic-pub">
 					<br><br>
 					<label>Payload: </label>
 					<input type="text" class="border border-primary"  id="payload-input"><br><br>

@@ -3,10 +3,10 @@ $(document).ready(function() {
 	var topicArray = [];
 
 	$("#btn-connect").click (function() {
-		client = mqtt.connect($("#address-input").val());
+		client = mqtt.connect($("#address").val());
 		client.on("connect", function(){
 		    console.log("Successfully connected");
-		    console.log("address: "+$("#address-input").val());
+		    console.log("address: "+$("#address").val());
 		})
 		$("#connected-btn").val("Connected!");
 		client.on("message", function (topic, payload) {
@@ -22,7 +22,7 @@ $(document).ready(function() {
 	});
 
 	$("#btn-subscribe").click (function() {
-		var topic = $("#topicSubscribe-input").val();
+		var topic = $("#topic-sub").val();
 		client.subscribe(topic);	
 		console.log("Subscribed { topic:" + topic+ " }");
 		topicArray.push(topic);
@@ -30,14 +30,14 @@ $(document).ready(function() {
 	})
 
 	$("#btn-unsubscribe").click (function() {
-		var topic = $("#topicSubscribe-input").val();
+		var topic = $("#topic-sub").val();
 		client.unsubscribe(topic);
 		console.log("Unsubscribed { topic:" + topic+ " }");
 		$("#subscribed-btn").val("Unsubscribed!");
 	})
 
 	$("#btn-publish").click (function() {
-		var topic = $("#topicPublish-input").val();
+		var topic = $("#topic-pub").val();
 		var payload = $("#payload-input").val();
 		client.publish(topic, payload);
 		console.log("Published { topic:"+topic+"; payload: "+payload+" }");
