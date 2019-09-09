@@ -1,128 +1,107 @@
- 
-<!DOCTYPE html>
 <html>
 <head>
-	<title>MQTT</title>
-	<link rel="stylesheet" href ="index.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	  <title>MQTT</title>
+	  <link rel="stylesheet" type="text/css" href="index.css">
+	  <h1></h1>
+  	<style>
 
+  	</style>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
 </head>
 <body>
-<h1>MQTT OVER WEB SOCKET</h1>
-<div class="container">
-	<div class="row">
-		<div class="col-sm">
-			<table class="table table-dark">
-			  	<thead>
-				    <tr>
-				      <th >BROKER</th>
-				    </tr>
-			  	</thead>
-			  	<tbody>
-				    <tr>
-				      <th><label>Address:</label>
-						</th>
-			    	</tr>
-				    <tr>
-				      <th><input type="text" id="address" value="ws://broker.hivemq.com:8000/mqtt"></th>
-				    </tr>
-				    <tr>
-				      <th>
-				      	<button>Connect</button>
-						<button>Disconnect</button>
+  	<center><h1>MQTT Web App</h1></center>
+  	<div class="container">
+  		<br>
+  		<div class="row">
+  			<div class="col">
+  				<div class="card">
+  					<div class="container" id="cont">
+  						<div class="card-header">
+  							<div class="text-center h4" id="head">--Broker--</div>
+  						</div>
+	  					
+	  					<div class="cont">
+	  						<label>Address: </label>
+							<input class="border border-primary" type="text" id="address-input" value="wss://test.mosquitto.org:8081/mqtt"><br><br>
+							<button id="btn-connect" class="btn btn-success">Connect</button>
+							<button id="btn-disconnect" class="btn btn-warning">Disconnect</button>
+							<br><br>
+							<label>Status: </label>
+							<input type="text" class="border border-primary" style="font-weight: bold" id="connected-btn" value="Disconnected!" readonly="">
+	  					</div>
+							
+  					</div>
+  				</div>
+  			</div>
+  		
+	  		<div class="col">
+	  			<div class="card">
+	  				<div class="container" id="cont">
+	  					<div class="card-header">
+	  						<div class="text-center h4" id="head">--Subscribe--</div>
+	  					</div>
 
-				      </th>
-						
-						
-				    </tr>
-			  	</tbody>
-			</table>
-		</div>
-		<div class="col-sm">
-			<table class="table table-dark">
-			  	<thead>
-				    <tr>
-				      <th >PUBLISH</th>
-				    </tr>
-			  	</thead>
-			  	<tbody>
-				    <tr>
-				      <th><label>Topic</label>
-						</th>
-			    	</tr>
-				    <tr>
-				      <th><input type="text" id="topic"></th>
-				    </tr>
-				    <tr>
-				    	<th><label>Payload</label></th>
-				    </tr>
-				    <tr>
-				    	<th>
-				    		<input type="text" id="payload">
-				    </tr>
-				    <tr>
-				      <th>
-				      	<button>Publish</button>
-				      </th>
-				    </tr>
-			  </tbody>
-			</table>
-		</div>
-		<div class="col-sm">
-			<table class="table table-dark">
-			  	<thead>
-				    <tr>
-				      <th >SUBSCRIBE</th>
-				    </tr>
-			  	</thead>
-			  	<tbody>
-				    <tr>
-				      <th><label>Topic</label>
-						</th>
-			    	</tr>
-			    	<tr>
-			      		<th><input type="text" id="topic"></th>
-			    	</tr>
-			    	<tr>
-				      	<th>
-					      	<button>Subscribe</button>
-					      	<button>Unsubscribe</button>
-
-				      	</th>
-			    	</tr>
-			  </tbody>
-			</table>
-		</div>
+	  						<label>Topic: </label>
+							<input type="text" class="border border-primary" id="topicSubscribe-input"><br><br>
+							<button id="btn-subscribe" class="btn btn-success">Subscribe</button>
+							<button id="btn-unsubscribe" class="btn btn-warning">Unsubscribe</button>
+							<br><br>
+							<label>Status: </label>
+							<input type="text" class="border border-primary" style="font-weight: bold" id="subscribed-btn" value="Unsubscribed!" readonly="">
+				
+	  				</div>
+	  			</div>
+	  		</div>	
+  			
+		  	<div class="col">
+		  		<div class="card">
+		  			<div class="container" id="cont">
+		  				<div class="card-header">
+		  					<div class="text-center h4" id="head">--Publish--</div>
+		  				</div>
+				
+					<label>Topic: </label>
+					<input type="text" class="border border-primary" id="topicPublish-input">
+					<br><br>
+					<label>Payload: </label>
+					<input type="text" class="border border-primary"  id="payload-input"><br><br>
+					<center>
+						<button id="btn-publish" class="btn btn-success">Publish</button>
+					</center>	  			
+					</div>
+			  	</div>
+	  		</div>
+	  	</div>
 	</div>
+  	
+	<center>
+		<div class="out">
+			<div class="card-header">
+	  			<div class="text-center h4" id="head">--Message--</div>
+	  		</div>
 
-<table class="table table-dark">
-  	<thead>
-	    <tr>
-	      <th >INCOMING MESSAGES</th>
-	    </tr>
-  	</thead>
-  	<tbody>
-	    <tr>
-	      <th>
-	      	Topic
-	      	Payload
-	      	Time Stamp
-		</th>
-    </tr>
- </tbody>
-</table>
-
-	</div>
-
-<script  src = paho-mqtt.js></script>
-<script  src = controller.js></script>
+		<br>
+		<div class="table card-body" id="table">
+			<table id="tab">
+					<tr class="bg-info">
+						<th>Topic</th>
+						<th>Payload</th>
+						<th>Time Stamp</th>
+					</tr>
+			</table>
+			<br>
+			<button class="btn btn-danger card-body" id="btn-clear"><strong>Clear History</strong></button>
+		</div>
+		</div>
+	</center>
 	
-
-
-
 </body>
-
-	<!-- <button id ="btn-publish">Publish</button> --> <!--  -->
-<!-- 	<button id = "btn-connect">Connect</button>
+<script src="scripts/browserMqtt.js"></script>
+<script src="scripts/controller.js"></script>
 </html>
-

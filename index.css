@@ -1,23 +1,50 @@
 body {
-	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ1XVrrZmxLJ_CZsasgAMoXEttITyyUfbTmBjTSl7Jla4ki9y4");
+	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEEVH4461PdETq6Aq2fCt1XuxP_nXOEdWbxVKW8mHPiQHwXd5J_g);
 	background-repeat: no-repeat;
 	background-size: cover;
-	color: pink;
-	margin: 0;
-	height: 100%;
-
-
 }
 
-table {
+button {
+	width: 49%;
+}
+
+input {
+	width: 100%;
+	padding: 3px;
+	box-shadow: pink;
+}
+
+h1, p{
+  	color: white;
+}
+
+.card {
+  	opacity: .9;
+  	background-color: pink;
+}
+
+label {
+  	color: violet;
+}
+
+.cont {
+	height: 80%;
+}
+
+.out {
+	margin-top: 10%;
 	border: 1px solid black;
-  background-color: transparent;
-  padding: 50px 100px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 16px;
+	width: 40%;
+	background-color: pink;
 }
 
+#head{
+	font-weight: bold;
+	color: blue;
+	letter-spacing: 2px;
+}
+
+#btn-clear {
+	width: 50%;
+	font-size: 20px;
+}
